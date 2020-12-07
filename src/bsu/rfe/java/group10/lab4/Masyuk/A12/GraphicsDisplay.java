@@ -28,6 +28,7 @@ public class GraphicsDisplay extends JPanel {
     private double minY;
     private double maxY;
     private double scale;
+    
     private BasicStroke graphicsStroke;
     private BasicStroke axisStroke;
     private BasicStroke markerStroke;

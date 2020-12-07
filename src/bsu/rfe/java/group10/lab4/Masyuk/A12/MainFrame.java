@@ -128,6 +128,5 @@ public class MainFrame extends JFrame {
         public void menuDeselected(MenuEvent e) {}
 
         public void menuCanceled(MenuEvent e) {}
-
     }
 }
