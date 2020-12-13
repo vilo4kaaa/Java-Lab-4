@@ -156,6 +156,11 @@ public class GraphicsDisplay extends JPanel {
         canvas.setPaint(Color.BLACK);
         canvas.setFont(axisFont);
         FontRenderContext context = canvas.getFontRenderContext();
+
+        Point2D.Double point0 = new Point2D.Double(0,0);
+        Point2D.Double point1 = new Point2D.Double(1,1);
+        canvas.draw(new Line2D.Double(xyToPoint(point0.x, point0.y), xyToPoint(point1.x, point1.y)));
+
         if (minX <= 0.0 && maxX >= 0.0) {
             canvas.draw(new Line2D.Double(xyToPoint(0, maxY),
                     xyToPoint(0, minY)));
@@ -192,7 +197,12 @@ public class GraphicsDisplay extends JPanel {
             Point2D.Double labelPos = xyToPoint(maxX, 0);
             canvas.drawString("x", (float) (labelPos.getX() -
                     bounds.getWidth() - 10), (float) (labelPos.getY() + bounds.getY()));
+            canvas.drawString("0", 0, 0);
         }
+        Rectangle2D centerBounds = axisFont.getStringBounds("0", context);
+        Point2D.Double centerLabelPos = xyToPoint(0, 0);
+        canvas.drawString("0", (float)centerLabelPos.getX() + 10,
+                (float)(centerLabelPos.getY() - centerBounds.getY()));
     }
 
     protected Point2D.Double xyToPoint(double x, double y) {
